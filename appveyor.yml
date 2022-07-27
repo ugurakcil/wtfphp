@@ -1,0 +1,22 @@
+version: "{branch}-{build}"
+build: false
+clone_folder: C:\projects\simple-api
+
+install:
+  - cinst -y php --version 8.1 --ignore-dependencies
+  - cd c:\tools\php81
+  - copy php.ini-production php.ini
+  - echo date.timezone="UTC" >> php.ini
+  - echo extension_dir=ext >> php.ini
+  - echo extension=php_openssl.dll >> php.ini
+  - echo extension=php_curl.dll >> php.ini
+  - echo extension=php_xmlrpc.dll >> php.ini
+  - SET PATH=C:\tools\php81;%PATH%
+  - cd C:\projects\blog-api
+  - php -r "readfile('http://getcomposer.org/installer');" | php
+  - php composer.phar install
+  - vendor\bin\phpcs.bat --config-set ignore_warnings_on_exit 1
+
+test_script:
+  - cd C:\projects\simple-api
+  - php composer.phar test
