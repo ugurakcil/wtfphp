@@ -2,8 +2,7 @@
 
 class App
 {
-    public static function run()
-    {
+    public static function run() {
         Logger::enableSystemLogs();
     }
 }

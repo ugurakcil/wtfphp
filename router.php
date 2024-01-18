@@ -3,22 +3,17 @@ use App\Lib\Router;
 use App\Lib\Request;
 use App\Lib\Response;
 use App\Controller\Home;
-use App\Controller\Contact;
 
-
-Router::get('/about', function (Request $req, Response $res) {
+Router::get('/', function (Request $req, Response $res) {
     (new Home())->indexAction($res);
 });
+
+/*
 
 Router::post('/contact', function(Request $req, Response $res) {
     (new Contact())->saveContact($req, $res);
 });
 
-
-
-
-
-/*
 Posts::load();
 
 Router::get('/post', function (Request $req, Response $res) {

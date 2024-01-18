@@ -15,11 +15,11 @@
         ]
     },
     "require": {
-        "php":"^8.0",
-        "monolog/monolog": "^2.5"
+        "php":"^8.2",
+        "monolog/monolog": "^3.5"
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "^3.6",
+        "squizlabs/php_codesniffer": "^3.8",
         "peridot-php/peridot": "^1.19",
         "peridot-php/leo": "^1.6",
         "eloquent/phony": "^5.0"

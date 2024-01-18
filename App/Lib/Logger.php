@@ -7,8 +7,7 @@ class Logger extends \Monolog\Logger
 {
     private static $loggers = [];
 
-    public function __construct($key = "app", $config = null)
-    {
+    public function __construct($key = "app", $config = null) {
         parent::__construct($key);
 
         if(!isset($config['logFile'])) {
@@ -23,8 +22,7 @@ class Logger extends \Monolog\Logger
         $this->pushHandler(new StreamHandler($config['logFile'], $config['logLevel']));
     }
 
-    public static function getInstance($key = "app", $config = null) // ???????
-    {
+    public static function getInstance($key = "app", $config = null) { // ???
         if (empty(self::$loggers[$key])) {
             self::$loggers[$key] = new Logger($key, $config);
         }
@@ -32,8 +30,7 @@ class Logger extends \Monolog\Logger
         return self::$loggers[$key];
     }
 
-    public static function enableSystemLogs()
-    {
+    public static function enableSystemLogs() {
         // Error Log
         self::$loggers['error'] = new Logger('errors');
         ErrorHandler::register(self::$loggers['error']);

@@ -25,15 +25,15 @@ $developmentMode = true;
 if($developmentMode) {
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
+    error_reporting(E_ALL & ~E_DEPRECATED);
     header('Access-Control-Allow-Origin: *');
 }
 
 header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
 header('Access-Control-Allow-Origin: *');
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
-require 'router.php';
+require '../router.php';
 
 \App\Lib\App::run();
